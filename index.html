@@ -1,11 +1,262 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ブログポスト</title>
+    <style>
+      /* CSS スタイル */
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: 0 auto;
+        max-width: 1200px;
+        padding: 0 16px;
+      }
+      .input-container {
+        display: flex;
+        justify-content: center;
+        margin: 24px 0;
+      }
+      .search-input {
+        min-width: 350px;
+        width: 46%;
+        margin: 5px;
+        padding: 8px 16px;
+        background-color: #f7fafc;
+        color: #2d3748;
+        border: 1px solid #e2e8f0;
+        border-radius: 9999px;
+        outline: none;
+      }
+      .search-input:focus {
+        background-color: #edf2f7;
+      }
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        justify-content: center;
+        padding: 16px;
+      }
+      .card {
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        max-width: 467px;
+        margin: 5px;
+        overflow: hidden; /* 追加: リンクがカードの外に広がらないようにする */
+      }
+      .card-body {
+        padding: 0;
+        border-top-radius: 8px;
+      }
+      .card img {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        object-fit: cover;
+        width: 100%;
+      }
+      .card-content {
+        margin: 16px;
+      }
+      .card-text {
+        margin-top: 8px;
+        color: #718096;
+        text-align: right;
+      }
+      .card-heading {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+      .card-author {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
+        color: #718096;
+      }
+      .card-author span {
+        margin-left: 5px;
+      }
+      .card-description {
+        font-size: 0.8rem;
+        margin-top: 8px;
+      }
+
+      .size-6 {
+        width: 12%;
+      }
+
+      /* リンクをブロックレベルにする */
+      .card a {
+        display: block;
+        color: inherit; /* リンクの色を継承する */
+        text-decoration: none; /* リンクの下線を削除 */
+      }
+
+      /* レスポンシブデザイン */
+      @media (max-width: 600px) {
+        .card-grid {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      @media (min-width: 601px) and (max-width: 850px) {
+        .card-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 851px) {
+        .card-grid {
+          grid-template-columns: repeat(4, 1fr); /* PCで4カラム表示 */
+        }
+        .card-heading {
+          text-align: center; /* 4カラム時に中央揃え */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-grid">
+        <div class="card">
+          <a href="https://example.com/article1">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-author"></div>
+                <div class="card-heading">上置き仏壇</div>
+                <div class="card-description">
+                  上置き仏壇は、現代の住環境に適したコンパクトで使いやすいお仏壇として人気です。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://example.com/article2">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-heading">家具調仏壇</div>
+                <div class="card-author"></div>
+                <div class="card-description">
+                  家具調仏壇は、現代のインテリアに調和するデザインで、収納も兼ねたお仏壇です。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://example.com/article3">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-heading">仏具</div>
+                <div class="card-author"></div>
+                <div class="card-description">
+                  法華経の実践に適した特定のアイテムも多数ご用意してます。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://example.com/article4">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-heading">しきみ造花</div>
+                <div class="card-author"></div>
+                <div class="card-description">
+                  しきみ造花はお手入れ簡単で、お仏壇に適した長持ちする花です。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://example.com/article5">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-heading">お念珠・念珠入れ</div>
+                <div class="card-author"></div>
+                <div class="card-description">
+                  お念珠は貴石や木製など多素材で、多彩なラインナップを取り揃えております。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://example.com/article6">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-heading">お線香</div>
+                <div class="card-author"></div>
+                <div class="card-description">
+                  豊富なラインナップで、価格にも自信のあるお線香を多数ご用意しています。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://example.com/article6">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-heading">電気・電池ろうそく</div>
+                <div class="card-author"></div>
+                <div class="card-description">
+                  電気・電池ろうそくは安全で、長持ちする仏壇用の便利な灯りです。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://example.com/article6">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-heading">グッズ</div>
+                <div class="card-author"></div>
+                <div class="card-description">
+                  贈り物に最適なアイテムも多数ご用意しています。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="card">
+          <a href="https://example.com/article6">
+            <div class="card-body">
+              <img src="https://placehold.jp/467x304.png" alt="dummy" />
+              <div class="card-content">
+                <div class="card-text"></div>
+                <div class="card-heading">念珠修理</div>
+                <div class="card-author"></div>
+                <div class="card-description">
+                  紐替えや房替えが必要な場合、お気軽にご依頼ください。
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
