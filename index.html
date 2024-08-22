@@ -81,6 +81,14 @@
         font-weight: 600;
         margin-bottom: 4px;
       }
+
+      .card-heading:hover{
+        color: #00c9e8 !important; /* 文字色 */
+    text-decoration: none !important; /* リンクに出てくる下線を無効にする */    
+    transition: 0.5s !important;
+}
+
+
       .card-author {
         display: flex;
         align-items: center;
@@ -111,6 +119,8 @@
         margin: 0 auto;
         max-width: 100%;
         height: auto;
+        border-radius: 4px;
+        box-shadow: 2px 2px 2px #cdcdcd;
       }
 
       /* レスポンシブデザイン スライダーも追加 */
@@ -122,6 +132,8 @@
         .slider img {
           max-width: 100%;
           margin-top: 10px;
+          border-radius: 4px;
+          box-shadow: 2px 2px 2px #cdcdcd;
         }
       }
       @media (min-width: 601px) and (max-width: 850px) {
@@ -132,6 +144,8 @@
         .slider img {
           margin-top: 20px;
           max-width: 100%;
+          border-radius: 4px;
+          box-shadow: 2px 2px 2px #cdcdcd;
         }
 
       }     
@@ -146,6 +160,8 @@
         .slider img {
           margin-top: 20px;
           max-width: 100%;
+          border-radius: 4px;
+          box-shadow: 2px 2px 2px #cdcdcd;
         }
         
 
@@ -418,17 +434,18 @@
       }
 
       .highlight {
-  background-color:#d3ccd6	; /* 好きな背景色を指定 */
-  padding: 6px 15px;
-   /* 少し余白を追加して見栄えを良くする */
-  border-radius: 0.5px; 
-  color: #f7f7f7	;
-  font-size: 0.8rem;
-}
+        padding: 6px 15px;
+        border-radius: 0.5px; 
+        color: #203744	;
+        font-size: 0.8rem;
+        border: 1px solid #203744;
+        }
+
+        
 
 
       .card-heading-price {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 600;
         margin-bottom: 4px;
       }
@@ -483,16 +500,51 @@
 
       </style>
 
+<!-- 共通のホバースタイルを関数化 -->
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+    function applyHoverEffect(buttonId) {
+        $(buttonId).hover(
+            function() {
+                $(this).css({
+                    'border': '1px solid #00c9e8',
+                    'color': '#00c9e8',
+                    'transition': '0.5s'
+                });
+            },
+            function() {
+                $(this).css({
+                    'border': '1px solid #203744',
+                    'color': '#203744',
+                    'transition': '0.5s'
+                });
+            }
+        );
+    }
+
+//  各ボタンに対してホバー効果を適用
+    applyHoverEffect('#button1');
+    applyHoverEffect('#button2');
+    applyHoverEffect('#button3');
+    applyHoverEffect('#button4');
+});
+
+  </script>
+
 
 
       <div class="card-grid-price">
 
+
+
         <div class="card-price">
           <a href="https://example.com/article1">
             <div class="card-body-price">
               <img src="https://placehold.jp/467x304.png" alt="dummy" />
               <div class="card-content-price">
-              <div class="card-text-price"><span class="highlight">詳しくはこちら→</span></div>
+              <div class="card-text-price"><span class="highlight" id="button1">詳しくはこちら→</span></div>
                 <!-- <div class="card-author-price">PICUP</div> -->
                 <div class="card-heading-price">上置き仏壇</div>
                 <div class="card-description-price">
@@ -508,7 +560,7 @@
             <div class="card-body-price">
               <img src="https://placehold.jp/467x304.png" alt="dummy" />
               <div class="card-content-price">
-              <div class="card-text-price"><span class="highlight">詳しくはこちら→</span></div>
+              <div class="card-text-price"><span class="highlight" id="button2" >詳しくはこちら→</span></div>
                 <!-- <div class="card-author-price">PICUP</div> -->
                 <div class="card-heading-price">上置き仏壇</div>
                 <div class="card-description-price">
@@ -519,12 +571,12 @@
           </a>       
         </div>
 
-        <div class="card-price">
+  <div class="card-price">
           <a href="https://example.com/article1">
             <div class="card-body-price">
               <img src="https://placehold.jp/467x304.png" alt="dummy" />
               <div class="card-content-price">
-              <div class="card-text-price"><span class="highlight">詳しくはこちら→</span></div>
+              <div class="card-text-price"><span class="highlight" id="button3">詳しくはこちら→</span></div>
                 <!-- <div class="card-author-price">PICUP</div> -->
                 <div class="card-heading-price">上置き仏壇</div>
                 <div class="card-description-price">
@@ -541,7 +593,7 @@
             <div class="card-body-price">
               <img src="https://placehold.jp/467x304.png" alt="dummy" />
               <div class="card-content-price">
-              <div class="card-text-price"><span class="highlight">詳しくはこちら→</span></div>
+              <div class="card-text-price"><span class="highlight" id="button4">詳しくはこちら→</span></div>
                 <!-- <div class="card-author-price">PICUP</div> -->
                 <div class="card-heading-price">上置き仏壇</div>
                 <div class="card-description-price">
