@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+    <style>
+      .swiper-container {
+        width: 100%;
+        margin: 0 auto;
+        position: relative; /* 相対位置に変更 */
+        padding-bottom: 40px;
+      }
+
+      .swiper-slide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 画像をスライド全体にフィットさせる */
+      }
+
+      .swiper-pagination {
+        position: absolute;
+        bottom: 20px; /* ページネーションの位置を調整 */
+        left: 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      /* レスポンシブ対応のスタイル */
+      @media (max-width: 768px) {
+        .swiper-container {
+          padding-bottom: 40px; /* 画面幅が768px以下の場合、スライダーのパディングを減らす */
+        }
+        .swiper-pagination {
+          bottom: -70px; /* ページネーションの位置を調整 */
+        }
+      }
+
+      @media (max-width: 480px) {
+        .swiper-container {
+          padding-bottom: 40px; /* 画面幅が480px以下の場合、スライダーのパディングをさらに減らす */
+        }
+        .swiper-pagination {
+          bottom: -50px; /* ページネーションの位置をさらに調整 */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">
+          <img src="/3.jpg" alt="Slider Image" />
+        </div>
+        <div class="swiper-slide">
+          <img src="/4.jpg" alt="Slider Image" />
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: true,
+        loop: true,
+        speed: 2000,
+        autoplay: {
+          delay: 1000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
